@@ -41,19 +41,12 @@ function drawOutput(lines){
 
 	var lines_header = lines[0];
 
-    var toAdd = document.createDocumentFragment();
-
+	var tags = document.getElementById("tags");
 	for (var i=0; i<lines_header.length; i++)
 	{
-		var newDiv = document.createElement('div');
-		newDiv.id = lines_header[i];
-		newDiv.innerHTML = lines_header[i];
-		newDiv.className = 'hoverable draggable';
-		toAdd.appendChild(newDiv)
-		console.log(lines_header[i]);
+		tags.innerHTML += "<div class='hoverable resize-drag' style='margin-left:"+(i*5)+"em'>"+ lines_header[i] +"</div>"
 	}
-	document.getElementById("tags").appendChild(toAdd);
-	
+
 
 	//remove header of csv file
 	lines.shift()
@@ -67,5 +60,7 @@ function drawOutput(lines){
 			csv_add.appendChild(div);
 	}
    document.getElementById("datas").appendChild(csv_add);
+
+	
 }
 //end of read csv file

@@ -1,17 +1,26 @@
-.draggable
+#datas
 {
+    overflow-y: scroll;
+}
+
+/* draggable style */
+.resize-drag {
     height: auto;
     width: auto;
     font-size: 15px;
     font-weight: bold;
     border-radius: 15px;
-    float: left;
     margin-left: 5px;
     padding: 10px;
     background-color: antiquewhite;
-    cursor: default;
-}
-#datas
-{
-    overflow-y: scroll;
-}
+    position: absolute;
+    float: unset;
+  
+    /* This makes things *much* easier */
+    box-sizing: border-box;
+  }
+  .resize-container {
+    display: inline-block;
+    width: 100%;
+    height: 240px;
+  }
