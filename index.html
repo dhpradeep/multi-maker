@@ -37,7 +37,7 @@
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>File</span>
-                            <input type="file" accept="image/jpeg, image/png" onchange="document.getElementById('image-preview').src = window.URL.createObjectURL(this.files[0])" >
+                            <input type="file" accept=".pdf" onchange="handlePdf.call(this)" >
                         </div>
                         <div class="file-path-wrapper">
                             <input type="text" class="file-path validate">
@@ -65,7 +65,8 @@
         <div class="row">
             <div class="col s8">
                 <div class="card-panel hoverable" style="height: 525px;">
-                    <img id="image-preview" src="" style="height:100%;width:auto;">
+                        <!-- <img id="image-preview" src="" style="height:100%;width:auto;"> -->
+                    <embed id="pdfFile" src="files/file.pdf" height="100%" width="100%">
                 </div>
             </div>
             <div>
@@ -80,6 +81,26 @@
                 </div>
             </div>
         </div>
+        <!--end of image-->
+
+        <!-- button for view preview -->
+        <div class="row">
+            <div class="col s3 offset-s3">
+                <button class="waves-effect waves-light btn" onclick="loader()">View Preview</button>
+            </div>
+        </div>
+        <!-- end of button -->
+
+        <!-- loader -->
+        <div class="row"><div class="col s6 offset-s3"><div id="loader"></div></div></div>
+
+        <!-- redraw image from canvas  -->
+       <div class="row" style="visibility: hidden;">
+           <div class="col s8">
+               Draw here ....
+           </div>
+       </div>
+        <!-- end of redraw image from canvas -->
 
         <!-- <footer class="page-footer">
                 <div class="container">
@@ -121,4 +142,4 @@
             <div class="circle"></div>
           </div>
       </div>
-    </div> -->
+    </div>  -->

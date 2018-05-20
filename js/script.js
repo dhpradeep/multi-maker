@@ -64,3 +64,37 @@ function drawOutput(lines){
 	
 }
 //end of read csv file
+
+function loader()
+{
+	var loader = document.getElementById("loader")
+	loader.innerHTML = "";
+	loader.innerHTML = '<div class="preloader-wrapper big active"><div class="spinner-layer spinner-blue-only"><div class="circle-clipper left"><div class="circle"></div></div><div class="gap-patch"><div class="circle"></div></div><div class="circle-clipper right"><div class="circle"></div></div></div></div>';
+	setTimeout(() => {
+		loader.innerHTML = "";
+		drawCanvas()
+		}, 5000);
+}
+
+// handling pdf file
+function handlePdf()
+{
+	if(this.files && this.files[0])
+	{
+		var obj = new FileReader();
+		obj.onload = function(data)
+		{
+			var pdfFile = document.getElementById("pdfFile");
+			pdfFile.src = data.target.result;
+		}
+		obj.readAsText(this.files[0]);
+	}
+}
+
+function drawCanvas()
+{
+	var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("scream");
+    ctx.drawImage(img, 10, 10);
+}
